@@ -1,0 +1,77 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+}
+
+.page {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+}
+
+section.loading {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+}
+
+.logo_text {
+	margin-top: -2em;
+	font-size: 1.5em;
+	opacity: 0;
+	cursor: pointer;
+	font-family: monospace;
+}
+
+.logo {
+	height: 100%;
+	width: 17%;
+}
+
+
+/*#logo {*/
+path {
+	stroke-dasharray: 350;
+	stroke-dashoffset: 0;
+	-webkit-animation: sketch 4s ease-in-out forwards;
+	-moz-animation: sketch 4s ease-in-out forwards;
+	-o-animation: sketch 4s ease-in-out forwards;
+	animation: sketch 4s ease-in-out forwards;
+}
+
+@-webkit-keyframes sketch {
+	from {
+		stroke-dashoffset: 350;
+	} to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@-moz-keyframes sketch {
+	from {
+		stroke-dashoffset: 350;
+	} to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@-o-keyframes sketch {
+	from {
+		stroke-dashoffset: 350;
+	} to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes sketch {
+	from {
+		stroke-dashoffset: 350;
+	} to {
+		stroke-dashoffset: 0;
+	}
+}
