@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Accordion</title>
+
+    <style type="text/css">
+        html,
+        body {
+            margin: 0px;
+            height: 100%;
+            font-family: Arial;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #005050;
+            height: 5vh;
+            vertical-align: middle;
+            color: #eee;
+            line-height: 5vh;
+            padding: 0px 10px 0px 10px;
+        }
+
+        .left-nav {
+            height: 100%;
+            width: 20%;
+            position: fixed;
+            left: 0;
+            padding: 0.5%;
+            border-right: 2px solid #005050;
+        }
+
+        .accordion-container {
+            height: 100%;
+            width: 78%;
+            position: fixed;
+            left: 21%;
+            padding: 0.5%;
+        }
+
+        .section {
+            width: 100%;
+            background-color: #008080;
+            height: 4vh;
+            border: 1px solid #005050;
+            border-radius: 5px;
+            vertical-align: middle;
+            text-align: left;
+            color: #eee;
+            transition: 0.4s;
+            margin: 2px 0px 2px 0px;
+        }
+
+        .section:hover,
+        .active {
+            background-color: #005050;
+        }
+
+        .panel {
+            border: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.2s ease-out;
+        }
+
+        .panel-show {
+            max-height: unset;
+            border: 1px solid #005050;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        .text-input {
+            width: 98%;
+            border: none;
+            height: 3vh;
+            border-bottom: 2px solid #008080;
+            transition: 0.4s;
+        }
+
+        .text-input:hover {
+            border-color: #005050;
+        }
+
+        .input-btn {
+            background-color: #008080;
+            border: 1px solid #005050;
+            border-radius: 5px;
+            height: 3vh;
+            color: #eee;
+            width: 40%;
+            transition: 0.4s;
+        }
+
+        .input-btn:hover {
+            background-color: #005050;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <strong>Header</strong>
+        </div>
+        <div class="left-nav">
+            <input type="button" name="" value="Button 1" class="input-btn">
+            <input type="button" name="" value="Button 2" class="input-btn">
+            <input type="text" name="" value="" placeholder="Text Field 1" class="text-input">
+            <input type="text" name="" value="" placeholder="Text Field 2" class="text-input">
+            <input type="text" name="" value="" placeholder="Text Field 3" class="text-input">
+        </div>
+        <div class="accordion-container">
+            <button type="button" name="button" class="section">Section Header</button>
+            <div class="panel">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <button type="button" name="button" class="section">Section Header</button>
+            <div class="panel">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <button type="button" name="button" class="section">Section Header</button>
+            <div class="panel">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+            <button type="button" name="button" class="section">Section Header</button>
+            <div class="panel">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var sections = document.getElementsByClassName("section");
+        for(var i = 0; i < sections.length; i++) {
+            sections[i].addEventListener("click", function() {
+                var j;
+
+                var allSections = document.getElementsByClassName("active");
+                for(j = 0; j < allSections.length; j++) {
+                    allSections[j].classList.remove("active");
+                }
+                this.classList.add("active");
+
+                var panel = this.nextElementSibling;
+                var allPanels = document.getElementsByClassName("panel");
+                for(j = 0; j < allPanels.length; j++) {
+                    if(allPanels[j] !== panel) {
+                        allPanels[j].style.maxHeight = null;
+                    }
+                }
+
+                if(panel.style.maxHeight) {
+                    this.classList.remove("active");
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
